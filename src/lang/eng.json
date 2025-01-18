@@ -1,0 +1,87 @@
+{
+  "header": {
+    "navigation": {
+      "home": "Home",
+      "services": "Services",
+      "about": "About",
+      "contact": "Contact"
+    }
+  },
+  "hero": {
+    "title": "Transform Your Business with AI",
+    "subtitle": "Intelligent Solutions, Extraordinary Results",
+    "cta": "Book a Call"
+  },
+  "services": {
+    "sectionTitle": "Our Services",
+    "items": [
+      {
+        "title": "AI Agents",
+        "description": "Intelligent automation that transforms how you work",
+        "extendedDescription": "Leverage cutting-edge AI to streamline your workflows and boost productivity",
+        "learnMore": "Learn More"
+      },
+      {
+        "title": "Automation",
+        "description": "Eliminate repetitive tasks with smart workflows",
+        "extendedDescription": "Custom automation solutions that free up your team to focus on high-value work",
+        "learnMore": "Learn More"
+      },
+      {
+        "title": "Custom Solutions",
+        "description": "Tailored software development for unique business needs",
+        "extendedDescription": "End-to-end development that turns your vision into powerful, scalable software",
+        "learnMore": "Learn More"
+      },
+      {
+        "title": "Sales Workflows",
+        "description": "Optimize your sales process with intelligent tools",
+        "extendedDescription": "Advanced CRM and sales pipeline management to drive revenue growth",
+        "learnMore": "Learn More"
+      },
+      {
+        "title": "Business Intelligence",
+        "description": "Data-driven insights to fuel strategic decisions",
+        "extendedDescription": "Advanced analytics and reporting to unlock your business's full potential",
+        "learnMore": "Learn More"
+      }
+    ]
+  },
+  "uvp": {
+    "sectionTitle": "Your Guaranteed Success",
+    "items": [
+      {
+        "title": "Market Position",
+        "description": "Rocket-speed growth",
+        "fullDescription": "Imagine freeing up your team from mind-numbing tasks, letting them focus on what truly matters. Our smart solutions help you move 40% faster, turning tedious work into smooth, effortless progress. You'll wonder how you ever managed without this.",
+        "mobileDescription": "40% faster with AI-powered automation"
+      },
+      {
+        "title": "Peace of Mind",
+        "description": "Zero worry zone",
+        "fullDescription": "Sleep soundly knowing your tech runs smoother than a well-oiled machine. With 99.9% uptime, we've got your back 24/7. No more tech headaches, just pure, uninterrupted business momentum.",
+        "mobileDescription": "99.9% uptime, zero tech worries"
+      },
+      {
+        "title": "Bottom Line",
+        "description": "Money talks",
+        "fullDescription": "Who doesn't love seeing their bank account smile? Our solutions are like a financial fitness trainer, pumping up your production to 3x in just 12 months. Real results, real fast.",
+        "mobileDescription": "3x production in 12 months"
+      }
+    ]
+  },
+  "guarantee": {
+    "title": "Confidence Guaranteed",
+    "description": "We're so confident in our solutions that if you're not completely satisfied, we'll refund your investment – no questions asked.",
+    "ctaButton": "Book a Call",
+    "guaranteeText": "100% Money-Back Guarantee"
+  },
+  "footer": {
+    "copyright": "© 2024 Your Company. All rights reserved.",
+    "socialLinks": {
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter",
+      "github": "GitHub"
+    }
+  }
+}

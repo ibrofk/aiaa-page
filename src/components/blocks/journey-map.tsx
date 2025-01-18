@@ -48,8 +48,9 @@ export function JourneyMap({ className }: JourneyMapProps) {
           direction="diagonal"
           speed={0.4}
           squareSize={40}
-          borderColor="rgba(255, 255, 255, 0.3)"
-          hoverFillColor="#ff3333"
+          borderColor="#333"
+          hoverFillColor="#222"
+          className="absolute inset-0"
         />
       </div>
       <div className="absolute inset-0 z-10">

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { FaRocket, FaLightbulb, FaCogs, FaChartLine, FaCalendarCheck, FaLinkedin, FaTwitter, FaGithub, FaArrowRight, FaTrophy, FaGem, FaHandshake } from "react-icons/fa";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { FaRocket, FaLightbulb, FaCogs, FaChartLine, FaCalendarCheck, FaLinkedin, FaTwitter, FaGithub, FaArrowRight, FaTrophy, FaGem, FaHandshake, FaRobot, FaCode, FaSalesforce } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { JourneyMap } from "./components/blocks/journey-map.jsx"
 import { Squares } from "./components/ui/squares-background"
 import { SplineScene } from "./components/ui/splite"
 import { WordRotate } from "./components/ui/word-rotate"
 import { ShineBorder } from "./components/ui/shine-border";
+import ChatPage from "./pages/chat.tsx";
 
 const LoadingScreen = () => (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
@@ -39,7 +41,7 @@ const FuturisticLanding = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedService, setSelectedService] = useState(null);
+  const [selectedService, setSelectedService] = useState(0); // Set AI Agents as default open
   const [modelsLoaded, setModelsLoaded] = useState(false);
 
   useEffect(() => {
@@ -69,59 +71,57 @@ const FuturisticLanding = () => {
   const uvpDetails = [
     {
       icon: <FaTrophy className="text-4xl text-red-500 mb-4" />,
-      title: "Industry Leadership",
-      description: "With over a decade of experience in digital transformation, we have consistently led the industry in innovation and excellence.",
-      fullDescription: "With over a decade of experience in digital transformation, we have consistently led the industry in innovation and excellence. Our proven track record includes successful partnerships with Fortune 500 companies and cutting-edge startups alike, delivering transformative solutions that drive real business value."
+      title: "Market Position",
+      description: "Rocket-speed growth",
+      fullDescription: "Imagine freeing up your team from mind-numbing tasks, letting them focus on what truly matters. Our smart solutions help you move 40% faster, turning tedious work into smooth, effortless progress. You'll wonder how you ever managed without this.",
+      mobileDescription: "40% faster with AI-powered automation"
     },
     {
       icon: <FaGem className="text-4xl text-red-500 mb-4" />,
-      title: "Premium Quality",
-      description: "We maintain the highest standards of quality in every project we undertake.",
-      fullDescription: "We maintain the highest standards of quality in every project we undertake. Our rigorous quality assurance processes, combined with our team of certified professionals, ensure that every solution we deliver is robust, scalable, and future-proof. We don't just meet expectations - we exceed them."
+      title: "Peace of Mind",
+      description: "Zero worry zone",
+      fullDescription: "Sleep soundly knowing your tech runs smoother than a well-oiled machine. With 99.9% uptime, we've got your back 24/7. No more tech headaches, just pure, uninterrupted business momentum.",
+      mobileDescription: "99.9% uptime, zero tech worries"
     },
     {
       icon: <FaHandshake className="text-4xl text-red-500 mb-4" />,
-      title: "Client Partnership",
-      description: "We believe in building lasting relationships with our clients.",
-      fullDescription: "We believe in building lasting relationships with our clients. Our collaborative approach means we work closely with you at every step, ensuring complete transparency and alignment with your business goals. Your success is our success, and we're committed to being a long-term partner in your growth journey."
+      title: "Bottom Line",
+      description: "Money talks",
+      fullDescription: "Who doesn't love seeing their bank account smile? Our solutions are like a financial fitness trainer, pumping up your production to 3x in just 12 months. Real results, real fast.",
+      mobileDescription: "3x production in 12 months"
     }
   ];
 
   const services = [
     {
-      icon: <FaRocket className="text-4xl text-red-500" />,
-      title: "Innovation",
-      description: "Pushing boundaries",
-      fullDescription: "Pushing boundaries with cutting-edge solutions",
-      extendedDescription: "Our innovation service helps businesses stay ahead of the curve with the latest technological advancements and creative solutions."
+      icon: FaRobot,
+      title: "AI Agents",
+      description: "Intelligent automation that transforms how you work",
+      extendedDescription: "Leverage cutting-edge AI to streamline your workflows and boost productivity"
     },
     {
-      icon: <FaLightbulb className="text-4xl text-red-500" />,
-      title: "Strategy",
-      description: "Smart solutions",
-      fullDescription: "Smart approaches for complex challenges",
-      extendedDescription: "Strategic planning and execution to help your business overcome obstacles and achieve sustainable growth."
+      icon: FaCogs,
+      title: "Automation",
+      description: "Eliminate repetitive tasks with smart workflows",
+      extendedDescription: "Custom automation solutions that free up your team to focus on high-value work"
     },
     {
-      icon: <FaCogs className="text-4xl text-red-500" />,
-      title: "Development",
-      description: "Future tech",
-      fullDescription: "Building tomorrow's technology today",
-      extendedDescription: "Cutting-edge development services utilizing the latest technologies and best practices in software engineering."
+      icon: FaCode,
+      title: "Custom Solutions",
+      description: "Tailored software development for unique business needs",
+      extendedDescription: "End-to-end development that turns your vision into powerful, scalable software"
     },
     {
-      icon: <FaChartLine className="text-4xl text-red-500" />,
-      title: "Analytics",
-      description: "Data insights",
-      fullDescription: "Data-driven insights for growth",
-      extendedDescription: "Advanced analytics and reporting to help you make informed decisions and optimize your business performance."
+      icon: FaSalesforce,
+      title: "Sales Workflows",
+      description: "Optimize your sales process with intelligent tools",
+      extendedDescription: "Advanced CRM and sales pipeline management to drive revenue growth"
     },
     {
-      icon: <FaCalendarCheck className="text-4xl text-red-500" />,
-      title: "Planning",
-      description: "Success path",
-      fullDescription: "Structured approach to success",
-      extendedDescription: "Comprehensive planning services to help you map out your path to success and achieve your business goals."
+      icon: FaChartLine,
+      title: "Business Intelligence",
+      description: "Data-driven insights to fuel strategic decisions",
+      extendedDescription: "Advanced analytics and reporting to unlock your business's full potential"
     }
   ];
 
@@ -224,7 +224,7 @@ const FuturisticLanding = () => {
             className="text-4xl sm:text-4xl md:text-6xl font-bold text-white mb-12 tracking-tight"
             style={{ fontSize: "clamp(1.7rem, 4vw, 3rem)" }}
           >
-            Watch Our Story
+            See How We Transformed Our Client's Business
           </motion.h2>
           <ShineBorder
             borderRadius={12}
@@ -271,27 +271,112 @@ const FuturisticLanding = () => {
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-black/70" />
-        <div className="relative z-10 max-w-6xl mx-auto p-4 md:p-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-8 md:mb-12">Why Choose Us</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
-            {uvpDetails.map((detail, index) => (
-              <motion.div
-                key={index}
-                className="bg-black/40 backdrop-blur-sm p-4 md:p-8 rounded-xl shadow-lg border border-white/10 hover:border-red-500/50"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <div className="flex flex-col items-center text-center">
-                  {detail.icon}
-                  <h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-4">{detail.title}</h3>
-                  <p className="text-neutral-300 text-sm md:text-base">
-                    {window.innerWidth <= 768 ? detail.description : detail.fullDescription}
+        <div className="relative z-10 max-w-6xl mx-auto text-center p-8">
+          <h2 className="text-4xl font-bold text-white mb-6">
+            Your Guaranteed Success
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <AnimatePresence>
+              {uvpDetails.map((detail, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-black/40 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-white/10 hover:border-red-500/50 transition-all duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <motion.div
+                    animate={{
+                      y: [-10, 10, -10],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    className="mb-4"
+                  >
+                    {detail.icon}
+                  </motion.div>
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    {detail.title}
+                  </h3>
+                  <p className="text-neutral-300 text-sm mb-4 hidden md:block">
+                    {detail.description}
                   </p>
+                  <p className="text-neutral-200 text-xs hidden md:block">
+                    {detail.fullDescription}
+                  </p>
+                  <p className="text-neutral-300 text-sm block md:hidden">
+                    {detail.mobileDescription}
+                  </p>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ 
+              opacity: 1, 
+              x: 0,
+              transition: {
+                duration: 0.8,
+                type: "spring",
+                bounce: 0.4
+              }
+            }}
+            whileHover={{ scale: 1.02 }}
+            className="mt-12 bg-transparent"
+          >
+            <div className="hidden md:block">
+              <motion.div
+                className="bg-red-500/30 p-6 md:p-10 rounded-2xl shadow-2xl border border-red-500/20 relative overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 to-transparent opacity-50 pointer-events-none"></div>
+                <div className="relative z-10">
+                  <p className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6 tracking-tight text-center md:text-left">
+                    Confidence Guaranteed
+                  </p>
+                  <p className="text-base md:text-xl text-neutral-200 mb-4 md:mb-6 text-center md:text-left">
+                    We're so confident in our solutions that if you're not completely satisfied, we'll refund your investment – no questions asked.
+                  </p>
+                  <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ 
+                      opacity: 1, 
+                      x: 0,
+                      transition: {
+                        duration: 0.8,
+                        delay: 0.4,
+                        type: "spring",
+                        bounce: 0.4
+                      }
+                    }}
+                    className="flex flex-col md:flex-row items-center justify-center md:justify-start space-y-4 md:space-y-0 md:space-x-4"
+                  >
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="w-full md:w-auto bg-red-600 text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-red-500 transition-colors"
+                    >
+                      Book a Call
+                    </motion.button>
+                    <p className="text-neutral-300 italic text-center md:text-left">
+                      100% Money-Back Guarantee
+                    </p>
+                  </motion.div>
                 </div>
               </motion.div>
-            ))}
-          </div>
+            </div>
+
+            <div className="block md:hidden">
+              <div className="bg-red-600 p-4 rounded-xl text-center">
+                <p className="text-white font-bold text-base">
+                  100% Money-Back Guarantee
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -311,53 +396,37 @@ const FuturisticLanding = () => {
           <h2 className="text-4xl font-bold text-white mb-6">
             Our Services
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <AnimatePresence>
-              {services.map((service, index) => (
-                <motion.div
-                  key={index}
-                  className={`relative bg-black/40 backdrop-blur-sm p-6 rounded-xl shadow-lg cursor-pointer border border-white/10 hover:border-red-500/50 transition-all duration-300 ${
-                    selectedService === index ? "lg:col-span-2 lg:row-span-2" : ""
-                  }`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  onClick={() => setSelectedService(selectedService === index ? null : index)}
-                >
-                  <motion.div
-                    animate={{
-                      y: [-10, 10, -10],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                    className="mb-4"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { 
+                    duration: 0.5, 
+                    delay: index * 0.1 
+                  } 
+                }}
+                className="bg-red-600/40 rounded-2xl p-6 text-white relative overflow-hidden group"
+              >
+                <div className="flex items-center mb-4">
+                  <service.icon className="text-4xl mr-4 text-white" />
+                  <h3 className="text-xl font-bold">{service.title}</h3>
+                </div>
+                <p className="text-neutral-100 mb-6">{service.description}</p>
+                <div className="flex items-center">
+                  <Link 
+                    to={`/chat?initialMessage=${encodeURIComponent(service.title)}`} 
+                    className="text-white underline flex items-center group-hover:opacity-80 transition-opacity"
                   >
-                    {service.icon}
-                  </motion.div>
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-neutral-300 text-sm">
-                    {selectedService === index
-                      ? service.extendedDescription
-                      : service.description}
-                  </p>
-                  {selectedService === index && (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      className="mt-4 flex items-center justify-center text-red-500 gap-2 hover:gap-3 transition-all"
-                    >
-                      Learn More <FaArrowRight />
-                    </motion.div>
-                  )}
-                </motion.div>
-              ))}
-            </AnimatePresence>
+                    Learn More
+                    <FaArrowRight className="ml-2 inline-block group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -365,8 +434,8 @@ const FuturisticLanding = () => {
       {/* Journey Map */}
       <JourneyMap />
 
-      {/* Testimonials */}
-      <section className="snap-start h-screen relative flex items-center justify-center">
+      {/* Testimonials Section Removed */}
+      {/* <section className="snap-start h-screen relative flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <Squares 
             direction="diagonal"
@@ -396,7 +465,7 @@ const FuturisticLanding = () => {
             <p className="text-gray-600">{testimonials[currentTestimonial].role}</p>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Book a Call */}
       <section className="snap-start h-screen relative flex items-center justify-center">
@@ -467,4 +536,15 @@ const FuturisticLanding = () => {
   );
 };
 
-export default FuturisticLanding;
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<FuturisticLanding />} />
+        <Route path="/chat" element={<ChatPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
