@@ -2,6 +2,7 @@ import React from "react"
 import { Timeline } from "../../components/ui/timeline"
 import { Squares } from "../../components/ui/squares-background"
 import { TextGenerateEffect } from "../../components/ui/text-generate-effect"
+import { Particles } from "../../components/ui/particles"
 
 const KeyWord = ({ children }) => (
   <span className="text-red-500 font-semibold relative">
@@ -183,8 +184,16 @@ export function JourneyMap({ className }) {
           direction="diagonal"
           speed={0.4}
           squareSize={40}
-          borderColor="#ffffff"
+          borderColor="rgba(255, 255, 255, 0.3)"
           hoverFillColor="#ff3333"
+        />
+        <Particles
+          className="absolute inset-0 z-10"
+          quantity={50}
+          staticity={30}
+          ease={70}
+          color="#ffffff"
+          size={0.6}
         />
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-black/80" />
