@@ -32,12 +32,11 @@
   },
   "scripts": {
     "preinstall": "npx force-resolutions",
-    "vercel-build": "CI=false npm run build",
-    "build": "react-app-rewired build",
-    "start": "react-app-rewired start",
-    "test": "react-app-rewired test",
-    "eject": "react-scripts eject",
-    "debug": "node --trace-warnings node_modules/react-scripts/scripts/build.js"
+    "vercel-build": "npm run build",
+    "build": "react-scripts build",
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -59,8 +58,6 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@vercel/static-build": "^2.5.41",
-    "customize-cra": "^1.0.0",
-    "react-app-rewired": "^2.2.1"
+    "@vercel/static-build": "^2.5.41"
   }
 }

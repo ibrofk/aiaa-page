@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
-  "outputDirectory": "build",
-  "framework": "create-react-app",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { 
+        "distDir": "build",
+        "buildCommand": "npm run build"
+      }
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
@@ -10,8 +17,8 @@
     }
   ],
   "env": {
-    "GENERATE_SOURCEMAP": "false",
-    "CI": "false"
+    "CI": "false",
+    "GENERATE_SOURCEMAP": "false"
   },
   "build": {
     "env": {
