@@ -12,6 +12,8 @@
     "@splinetool/react-spline": "^4.0.0",
     "@splinetool/runtime": "^1.9.59",
     "@tabler/icons-react": "^3.28.1",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cra-template": "1.2.0",
@@ -24,14 +26,17 @@
     "react-router-dom": "^6.21.3",
     "react-scripts": "5.0.1",
     "tailwind-merge": "^2.6.0",
+    "typescript": "^5.0.4",
     "usehooks-ts": "^3.1.0",
     "web-vitals": "^4.2.4"
   },
   "scripts": {
+    "preinstall": "npx force-resolutions",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "vercel-build": "npm install && react-scripts build"
   },
   "eslintConfig": {
     "extends": [
@@ -50,14 +55,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/node": "^22.10.7",
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.5.1",
-    "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.3"
   }
 }
