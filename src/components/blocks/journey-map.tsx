@@ -114,4 +114,4 @@ export function JourneyMap({ className }: JourneyMapProps) {
       </div>
     </section>
   )
-} 
+}

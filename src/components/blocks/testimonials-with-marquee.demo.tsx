@@ -38,4 +38,4 @@ export function TestimonialsSectionDemo() {
       testimonials={testimonials}
     />
   )
-} 
+}

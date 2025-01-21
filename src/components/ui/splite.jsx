@@ -32,4 +32,4 @@ export function SplineScene({ scene, className }) {
       />
     </motion.div>
   );
-} 
+}

@@ -34,4 +34,4 @@ export function SplineSceneBasic() {
       </div>
     </Card>
   )
-} 
+}

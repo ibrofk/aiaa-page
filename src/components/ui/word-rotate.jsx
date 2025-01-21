@@ -40,4 +40,4 @@ export function WordRotate({
       </AnimatePresence>
     </div>
   );
-} 
+}

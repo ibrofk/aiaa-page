@@ -202,4 +202,4 @@ export function JourneyMap({ className }) {
       </div>
     </section>
   );
-} 
+}

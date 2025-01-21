@@ -217,4 +217,4 @@ export const Timeline = ({ data }) => {
       </div>
     </div>
   );
-}; 
+};

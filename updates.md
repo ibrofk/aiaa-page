@@ -73,4 +73,4 @@
 - Add message history
 - Implement user authentication
 - Add typing indicators
-- Enhance error handling 
+- Enhance error handling
