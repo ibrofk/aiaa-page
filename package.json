@@ -34,7 +34,6 @@
   },
   "scripts": {
     "preinstall": "npx force-resolutions",
-    "vercel-build": "npm run build",
     "build": "react-scripts build",
     "start": "react-scripts start",
     "test": "react-scripts test",
