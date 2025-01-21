@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { FaRocket, FaLightbulb, FaCogs, FaChartLine, FaCalendarCheck, FaLinkedin, FaTwitter, FaGithub, FaArrowRight, FaTrophy, FaGem, FaHandshake, FaRobot, FaCode, FaSalesforce } from "react-icons/fa";
+import { FaCogs, FaChartLine, FaLinkedin, FaTwitter, FaGithub, FaArrowRight, FaTrophy, FaGem, FaHandshake, FaRobot, FaCode, FaSalesforce } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { JourneyMap } from "./components/blocks/journey-map.jsx"
 import { Squares } from "./components/ui/squares-background"

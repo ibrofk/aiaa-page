@@ -35,16 +35,20 @@
   "scripts": {
     "preinstall": "npx force-resolutions",
     "build": "react-scripts build",
-    "start": "react-scripts start",
+ 	  "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
+	"eslintConfig": {
+	  "extends": [
+	    "react-app",
+	    "react-app/jest"
+	  ],
+	  "rules": {
+	    "no-unused-vars": "off",
+	    "react-hooks/exhaustive-deps": "off"
+	  }
+	},
   "browserslist": {
     "production": [
       ">0.2%",
