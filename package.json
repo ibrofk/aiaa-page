@@ -1,6 +1,6 @@
 {
   "name": "aiaa-page",
-  "homepage": "https://aiaa-page.vercel.app",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
