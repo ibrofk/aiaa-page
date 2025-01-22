@@ -12,8 +12,12 @@
   ],
   "routes": [
     {
+      "src": "/chat",
+      "dest": "/"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/"
     }
   ],
   "env": {
