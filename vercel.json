@@ -4,7 +4,7 @@
     {
       "src": "package.json",
       "use": "@vercel/static-build",
-      "config": { 
+      "config": {
         "distDir": "build",
         "buildCommand": "npm run build"
       }
@@ -12,22 +12,8 @@
   ],
   "routes": [
     {
-      "src": "/chat",
-      "dest": "/"
-    },
-    {
       "src": "/(.*)",
       "dest": "/"
     }
-  ],
-  "env": {
-    "CI": "false",
-    "GENERATE_SOURCEMAP": "false",
-		"DISABLE_ESLINT_PLUGIN": "true"
-  },
-  "build": {
-    "env": {
-      "NODE_OPTIONS": "--max_old_space_size=4096"
-    }
-  }
+  ]
 }
