@@ -41,10 +41,10 @@ const ExpandableChat = React.forwardRef<HTMLDivElement, ExpandableChatProps>(
   ({ className, position = "bottom-right", size = "md", icon, children, ...props }, ref) => {
     const [isOpen, setIsOpen] = React.useState(false);
 
-    const toggleChat = () => setIsOpen(!isOpen);
+  const toggleChat = () => setIsOpen(!isOpen);
 
-    return (
-      <div
+  return (
+    <div
         ref={ref}
         className={cn(
           "fixed z-50",
@@ -59,7 +59,7 @@ const ExpandableChat = React.forwardRef<HTMLDivElement, ExpandableChatProps>(
             <div className="sm:hidden flex justify-end p-4 border-b">
               <button
                 onClick={toggleChat}
-                className="text-foreground hover:opacity-70 transition-opacity p-2"
+                className="text-white hover:opacity-70 transition-opacity p-2"
               >
                 <X className="h-6 w-6" />
               </button>
@@ -67,36 +67,37 @@ const ExpandableChat = React.forwardRef<HTMLDivElement, ExpandableChatProps>(
 
             {/* Chat Container */}
             <div className={cn(
-              "bg-background border rounded-lg shadow-lg flex flex-col relative",
+              "bg-background border shadow-lg flex flex-col relative",
               "h-full w-full", // Mobile full screen
-              "sm:w-[66vw] sm:h-[50vh]", // Desktop dimensions (2/3 width, 1/2 height)
+              "sm:rounded-lg", // Only add rounded corners on desktop
+              "sm:w-[66vw] sm:h-[50vh]", // Desktop dimensions
               "sm:mr-[5%] sm:mb-[5%]", // Right and bottom margins
               "sm:bottom-0 sm:right-0" // Desktop positioning
             )}>
-              {children}
+        {children}
               
               {/* Desktop Close Button */}
               <button
-                onClick={toggleChat}
+          onClick={toggleChat}
                 className="hidden sm:block absolute right-4 top-4 text-foreground hover:opacity-70 transition-opacity"
-              >
+        >
                 <X className="h-6 w-6" />
               </button>
             </div>
-          </div>
+      </div>
         ) : (
-          <ExpandableChatToggle
-            isOpen={isOpen}
-            toggleChat={toggleChat}
+      <ExpandableChatToggle
+        isOpen={isOpen}
+        toggleChat={toggleChat}
             icon={icon}
             className={cn(
               position === "bottom-right" ? "right-[5%] bottom-[5%]" : "left-[5%] bottom-[5%]",
               "fixed"
             )}
-          />
+      />
         )}
-      </div>
-    );
+    </div>
+  );
   }
 );
 ExpandableChat.displayName = "ExpandableChat";
@@ -113,14 +114,14 @@ const ExpandableChatToggle = React.forwardRef<HTMLButtonElement, ExpandableChatT
     return isOpen ? (
       <button
         ref={ref}
-        className={cn(
+    className={cn(
           "text-foreground hover:text-muted-foreground transition-colors",
           className
-        )}
+    )}
         onClick={toggleChat}
-        {...props}
-      >
-        <X className="h-6 w-6" />
+    {...props}
+  >
+      <X className="h-6 w-6" />
       </button>
     ) : (
       <Button
@@ -133,7 +134,7 @@ const ExpandableChatToggle = React.forwardRef<HTMLButtonElement, ExpandableChatT
         {...props}
       >
         {icon || <MessageCircle className="h-4 w-4" />}
-      </Button>
+  </Button>
     );
   }
 );
