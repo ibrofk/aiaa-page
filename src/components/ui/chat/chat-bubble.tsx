@@ -43,6 +43,14 @@ const ChatBubble = React.forwardRef<HTMLDivElement, ChatBubbleProps>(
       )}
       {...props}
     >
+      {variant === 'received' && (
+        <ChatBubbleAvatar
+          src="/ai-avatar.png"
+          fallback="AI"
+          className="w-8 h-8"
+          variant="received"
+        />
+      )}
       {React.Children.map(children, (child) =>
         React.isValidElement(child) && typeof child.type !== "string"
           ? React.cloneElement(child, {
@@ -61,26 +69,32 @@ interface ChatBubbleAvatarProps {
   src?: string;
   fallback?: string;
   className?: string;
+  variant: 'sent' | 'received';
 }
 
 const ChatBubbleAvatar: React.FC<ChatBubbleAvatarProps> = ({
   src,
   fallback,
   className,
+  variant,
 }) => (
-  <Avatar className={className}>
+  <Avatar className={cn(
+    className,
+    variant === 'sent' && 'bg-[#cc0000] text-white',
+    variant === 'received' && 'bg-[#1a1a1a] text-white'
+  )}>
     <AvatarImage src={src} alt="Avatar" />
     <AvatarFallback>{fallback}</AvatarFallback>
   </Avatar>
 );
 
 // ChatBubbleMessage
-const chatBubbleMessageVariants = cva("p-4", {
+const chatBubbleMessageVariants = cva("p-4 relative", {
   variants: {
     variant: {
       received:
-        "bg-secondary text-secondary-foreground rounded-r-lg rounded-tl-lg",
-      sent: "bg-primary text-primary-foreground rounded-l-lg rounded-tr-lg",
+        "bg-[#1a1a1a] text-white rounded-r-lg rounded-tl-lg",
+      sent: "bg-[#cc0000] text-white rounded-l-lg rounded-tr-lg",
     },
     layout: {
       default: "",
@@ -111,6 +125,7 @@ const ChatBubbleMessage = React.forwardRef<
       className={cn(
         chatBubbleMessageVariants({ variant, layout, className }),
         "break-words max-w-full whitespace-pre-wrap",
+        isLoading && "min-w-[100px]",
       )}
       ref={ref}
       {...props}

@@ -1,0 +1,129 @@
+{
+  "loading": {
+    "message": "Loading resources..."
+  },
+  "hero": {
+    "rotatingWords": ["Transform", "Automate", "Scale"],
+    "ctaButton": "Book a Call"
+  },
+  "videoSection": {
+    "title": "See How We Transformed Our Client's Business",
+    "subtitle": "Discover how we're shaping the future of technology"
+  },
+  "valueProposition": {
+    "title": "Your Guaranteed Success",
+    "cards": [
+      {
+        "title": "Market Position",
+        "shortDescription": "Rocket-speed growth",
+        "mobileDescription": "40% faster with AI-powered automation",
+        "fullDescription": "Imagine freeing up your team from mind-numbing tasks, letting them focus on what truly matters. Our smart solutions help you move 40% faster, turning tedious work into smooth, effortless progress. You'll wonder how you ever managed without this."
+      },
+      {
+        "title": "Peace of Mind",
+        "shortDescription": "Zero worry zone",
+        "mobileDescription": "99.9% uptime, zero tech worries",
+        "fullDescription": "Sleep soundly knowing your tech runs smoother than a well-oiled machine. With 99.9% uptime, we've got your back 24/7. No more tech headaches, just pure, uninterrupted business momentum."
+      },
+      {
+        "title": "Bottom Line",
+        "shortDescription": "Money talks",
+        "mobileDescription": "3x production in 12 months",
+        "fullDescription": "Who doesn't love seeing their bank account smile? Our solutions are like a financial fitness trainer, pumping up your production to 3x in just 12 months. Real results, real fast."
+      }
+    ],
+    "guarantee": {
+      "title": "Confidence Guaranteed",
+      "description": "We're so confident in our solutions that if you're not completely satisfied, we'll refund your investment – no questions asked.",
+      "cta": "Book a Call",
+      "moneyBack": "100% Money-Back Guarantee"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "items": [
+      {
+        "title": "AI Agents",
+        "description": "Intelligent automation that transforms how you work",
+        "learnMore": "Learn More"
+      },
+      {
+        "title": "Automation",
+        "description": "Eliminate repetitive tasks with smart workflows",
+        "learnMore": "Learn More"
+      },
+      {
+        "title": "Custom Solutions",
+        "description": "Tailored software development for unique business needs",
+        "learnMore": "Learn More"
+      },
+      {
+        "title": "Sales Workflows",
+        "description": "Optimize your sales process with intelligent tools",
+        "learnMore": "Learn More"
+      },
+      {
+        "title": "Business Intelligence",
+        "description": "Data-driven insights to fuel strategic decisions",
+        "learnMore": "Learn More"
+      }
+    ]
+  },
+  "ctaSection": {
+    "title": "Ready to Transform Your Business?",
+    "subtitle": "Schedule a free consultation with our experts",
+    "button": "Book a Call Now"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "email": "contact@futuristic.com"
+  },
+  "chatSupport": {
+    "header": "Chat with our AI ✨",
+    "subtitle": "Ask any question for our AI to answer",
+    "buttons": {
+      "newChat": "New Chat",
+      "faq": "See FAQ"
+    },
+    "initialMessage": "Hello! How can I assist you today?",
+    "inputPlaceholder": "Type your message...",
+    "sendButtonAria": "Send message"
+  },
+  "journeyMap": {
+    "timeline": [
+      {
+        "title": "The Struggle",
+        "content": "Running a business is <em>rewarding</em>—but sometimes it feels like you're <em>juggling</em> too much. Meetings, emails, updates—it's <em>endless</em>."
+      },
+      {
+        "title": "The Spark",
+        "content": "What if you could do <em>less</em> but achieve <em>more</em>? Focus on <em>people</em>, <em>progress</em>, and <em>purpose</em> while the rest takes care of itself."
+      },
+      {
+        "title": "The Connection",
+        "content": "We start with <em>real conversations</em>. Understanding your <em>goals</em>, challenges, and what keeps you up at night. No fluff—just <em>clarity</em>."
+      },
+      {
+        "title": "The Shift",
+        "content": "With <em>tailored solutions</em>, your team finds its <em>flow</em>. <em>Efficiency</em> becomes second nature. Customers get <em>quicker responses</em>, and your ideas turn into <em>action</em> faster."
+      },
+      {
+        "title": "The Result",
+        "content": "You finally have space to <em>breathe</em>. Decisions make <em>sense</em>, your team <em>clicks</em>, customers <em>trust</em> you, and everything feels like it's moving <em>forward</em>."
+      },
+      {
+        "title": "The Future",
+        "content": "<em>Sharper</em> decisions. <em>Faster</em> growth. <em>Bigger</em> wins. Your edge, <em>redefined</em>."
+      }
+    ],
+    "keywords": {
+      "emphasizedTerms": [
+        "rewarding", "juggling", "endless", "less", "more", "people",
+        "progress", "purpose", "real conversations", "goals", "clarity",
+        "tailored solutions", "flow", "Efficiency", "quicker responses",
+        "action", "breathe", "sense", "clicks", "trust", "forward",
+        "Sharper", "Faster", "Bigger", "redefined"
+      ]
+    }
+  }
+}

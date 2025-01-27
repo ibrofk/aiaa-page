@@ -11,61 +11,16 @@ import ChatPage from "./pages/chat.tsx";
 import { cn } from "./lib/utils"
 import ChatSupport from "./components/ChatSupport";
 
-const LoadingScreen = () => (
-  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
-    <div className="flex flex-col items-center gap-4">
-      <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          rotate: [0, 180, 360]
-        }}
-        transition={{
-          duration: 2,
-          ease: "easeInOut",
-          times: [0, 0.5, 1],
-          repeat: Infinity
-        }}
-        className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full"
-      />
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="text-white text-lg"
-      >
-        Loading resources...
-      </motion.p>
-    </div>
-  </div>
-);
-
 const FuturisticLanding = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [selectedService, setSelectedService] = useState(0); // Set AI Agents as default open
-  const [modelsLoaded, setModelsLoaded] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
     const timer = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 2000);
-
-    // Preload static models and resources
-    const preloadResources = async () => {
-      try {
-        // Wait for 5 seconds to ensure models are loaded
-        await new Promise(resolve => setTimeout(resolve, 5000));
-        setModelsLoaded(true);
-        setIsLoading(false);
-      } catch (error) {
-        console.error('Error loading resources:', error);
-        setIsLoading(false);
-      }
-    };
-
-    preloadResources();
 
     return () => clearInterval(timer);
   }, []);
@@ -142,10 +97,6 @@ const FuturisticLanding = () => {
     }
   ];
 
-  if (isLoading) {
-    return <LoadingScreen />;
-  }
-
   return (
     <div className="snap-y snap-mandatory h-screen w-full overflow-y-scroll">
       {/* Hero Section */}
@@ -187,8 +138,9 @@ const FuturisticLanding = () => {
                   shadow-[0_0_15px_rgba(239,68,68,0.5)] hover:shadow-[0_0_25px_rgba(239,68,68,0.7)]
                   border border-red-400/50 hover:border-red-300/50
                   relative overflow-hidden group"
+                onClick={() => window.open('https://cal.com/simply4ai/how-can-ai-increase-your-sales', '_blank')}
               >
-                <span className="relative z-10">Book a Call</span>
+                <span className="relative z-10">Book a Free AI Consultation</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-red-600/50 to-orange-500/50 blur-xl 
                   group-hover:from-red-500/70 group-hover:to-orange-400/70 
                   transition-all duration-300 opacity-0 group-hover:opacity-100" />
@@ -226,7 +178,7 @@ const FuturisticLanding = () => {
             className="text-4xl sm:text-4xl md:text-6xl font-bold text-white mb-12 tracking-tight"
             style={{ fontSize: "clamp(1.7rem, 4vw, 3rem)" }}
           >
-            See How We Transformed Our Client's Business
+            How AI Can Transform Your Sales Process
           </motion.h2>
           <ShineBorder
             borderRadius={12}
@@ -256,13 +208,13 @@ const FuturisticLanding = () => {
             transition={{ duration: 1, delay: 0.5 }}
             className="hidden md:block mt-8 text-2xl text-white font-semibold"
           >
-            Discover how we're shaping the future of technology
+            Discover how AI can increase your sales efficiency by 40% or more
           </motion.p>
         </div>
       </section>
 
       {/* Value Proposition */}
-      <section className="snap-start h-screen relative flex items-center justify-center">
+      <section className="snap-start h-screen relative flex items-center">
         <div className="absolute inset-0 z-0">
           <Squares 
             direction="right"
@@ -273,110 +225,68 @@ const FuturisticLanding = () => {
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-black/70" />
-        <div className="relative z-10 max-w-6xl mx-auto text-center p-8">
-          <h2 className="text-4xl font-bold text-white mb-6">
+        
+        <div className="relative z-10 w-full h-full grid grid-rows-[auto_1fr_auto] py-12 md:py-16 px-4 md:px-8">
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-3xl md:text-4xl font-bold text-white text-center mb-8 md:mb-12"
+          >
             Your Guaranteed Success
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <AnimatePresence>
+          </motion.h2>
+
+          <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 content-center">
               {uvpDetails.map((detail, index) => (
                 <motion.div
                   key={index}
-                  className="bg-black/40 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-white/10 hover:border-red-500/50 transition-all duration-300"
+                className="bg-black/40 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-lg border border-white/10 hover:border-red-500/50 transition-all duration-300 h-full"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
+                <div className="grid grid-cols-[1fr_auto] items-start gap-4">
+                  <div>
+                    <h3 className="text-lg md:text-xl font-bold text-white mb-2">
+                      {detail.title}
+                    </h3>
+                    <p className="text-xs md:text-sm text-neutral-300 mb-2 hidden md:block">
+                      {detail.description}
+                    </p>
+                    <p className="text-[0.7rem] md:text-xs text-neutral-200 hidden md:block">
+                      {detail.fullDescription}
+                    </p>
+                    <p className="text-xs text-neutral-300 block md:hidden leading-tight">
+                      {detail.mobileDescription}
+                    </p>
+                  </div>
                   <motion.div
-                    animate={{
-                      y: [-10, 10, -10],
-                    }}
+                    animate={{ rotate: [0, 10, -10, 0] }}
                     transition={{
                       duration: 2,
                       repeat: Infinity,
                       ease: "easeInOut",
                     }}
-                    className="mb-4"
                   >
                     {detail.icon}
                   </motion.div>
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    {detail.title}
-                  </h3>
-                  <p className="text-neutral-300 text-sm mb-4 hidden md:block">
-                    {detail.description}
-                  </p>
-                  <p className="text-neutral-200 text-xs hidden md:block">
-                    {detail.fullDescription}
-                  </p>
-                  <p className="text-neutral-300 text-sm block md:hidden">
-                    {detail.mobileDescription}
-                  </p>
+                </div>
                 </motion.div>
               ))}
-            </AnimatePresence>
           </div>
+
+          {/* Guarantee Container */}
           <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ 
-              opacity: 1, 
-              x: 0,
-              transition: {
-                duration: 0.8,
-                type: "spring",
-                bounce: 0.4
-              }
-            }}
-            whileHover={{ scale: 1.02 }}
-            className="mt-12 bg-transparent"
+            className="w-full max-w-4xl mx-auto mt-8 md:mt-12 px-4"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
           >
-            <div className="hidden md:block">
-              <motion.div
-                className="bg-red-500/30 p-6 md:p-10 rounded-2xl shadow-2xl border border-red-500/20 relative overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 to-transparent opacity-50 pointer-events-none"></div>
-                <div className="relative z-10">
-                  <p className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6 tracking-tight text-center md:text-left">
-                    Confidence Guaranteed
-                  </p>
-                  <p className="text-base md:text-xl text-neutral-200 mb-4 md:mb-6 text-center md:text-left">
-                    We're so confident in our solutions that if you're not completely satisfied, we'll refund your investment – no questions asked.
-                  </p>
-                  <motion.div
-                    initial={{ opacity: 0, x: 50 }}
-                    whileInView={{ 
-                      opacity: 1, 
-                      x: 0,
-                      transition: {
-                        duration: 0.8,
-                        delay: 0.4,
-                        type: "spring",
-                        bounce: 0.4
-                      }
-                    }}
-                    className="flex flex-col md:flex-row items-center justify-center md:justify-start space-y-4 md:space-y-0 md:space-x-4"
-                  >
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-full md:w-auto bg-red-600 text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-red-500 transition-colors"
-                    >
-                      Book a Call
-                    </motion.button>
-                    <p className="text-neutral-300 italic text-center md:text-left">
+            <div className="bg-red-600/30 p-4 md:p-6 rounded-xl text-center border border-red-500/20">
+              <p className="text-sm md:text-base font-bold text-white leading-tight">
                       100% Money-Back Guarantee
                     </p>
-                  </motion.div>
-                </div>
-              </motion.div>
-            </div>
-
-            <div className="block md:hidden">
-              <div className="bg-red-600 p-4 rounded-xl text-center">
-                <p className="text-white font-bold text-base">
-                  100% Money-Back Guarantee
-                </p>
-              </div>
+              <p className="text-xs md:text-sm text-neutral-200 mt-2 hidden md:block">
+                We're confident you'll love our solutions - or your money back
+              </p>
             </div>
           </motion.div>
         </div>
@@ -488,8 +398,9 @@ const FuturisticLanding = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-red-600 hover:bg-red-500 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg"
+            onClick={() => window.open('https://cal.com/simply4ai/how-can-ai-increase-your-sales', '_blank')}
           >
-            Book a Call Now
+            Book Your Free AI Strategy Session
           </motion.button>
         </div>
       </section>
