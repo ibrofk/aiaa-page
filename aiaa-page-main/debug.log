@@ -1,0 +1,16 @@
+# Vercel Deployment Debug Log
+
+## Build Environment
+- Node Version: $(node --version)
+- npm Version: $(npm --version)
+- React Scripts Version: $(npm list react-scripts)
+
+## Troubleshooting Steps
+1. Ensure all dependencies are correctly installed
+2. Check for any conflicting peer dependencies
+3. Verify build scripts and configuration
+
+## Common Issues
+- Peer dependency conflicts
+- Incompatible package versions
+- Build script errors
